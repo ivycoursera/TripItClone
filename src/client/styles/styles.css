@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #b1a296;
+}
+.container {
+  margin: auto;
+  max-width: 97%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas: "header", "main", "footer";
+  grid-template-rows: 15% 70% 10%;
+  grid-gap: 15px;
+  padding-top: 0;
+  background-color: white;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-transform: uppercase;
+  background-color: #272727;
+  color: white;
+}
+header h1 {
+  margin: 0;
+  font-family: courier, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 5vw;
+}
+main {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 30% 65%;
+  padding: 10px;
+}
+
+form {
+  border-right: 2px solid grey;
+  display: grid;
+  grid-template-columns: 95%;
+  grid-template-rows: 10% 50% 10% 10%;
+  grid-gap: 5px;
+}
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #116466;
+  font-size: 1.1em;
+}
+form input {
+  font-size: 2vw;
+  margin-bottom: 10px;
+}
+form textarea {
+  height: 70%;
+  font-size: 1.8vw;
+}
+form button {
+  margin: 0;
+  height: 50%;
+  width: 80%;
+}
+.forecast {
+  padding: 10px;
+  font-size: 1.2em;
+}
+.show-error {
+  color: red;
+}
+
+footer {
+  background-color: #272727;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
