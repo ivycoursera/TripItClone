@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Initializing the main project folder
-app.use(express.static("../client"));
+app.use(express.static("../dist"));
 
 // Save weather data
 app.post("/", (req, res) => {
