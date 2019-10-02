@@ -1,8 +1,8 @@
-# Weather Journal Project
+# A travel app
 
 ## About
 
-This project showcases an asynchronous web app that uses Web API and user data to dynamically update the UI.
+This project is a TripIt Clone that obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs.
 
 ## Requirements
 
@@ -10,20 +10,8 @@ This project showcases an asynchronous web app that uses Web API and user data t
 
 ## How to run the project
 
-1. clone the repo or copy the zip files
-2. cd into the folder
-3. run `npm install`
-4. run `node server.js`
-
 ## Project Structure
 
 ```
-website
-- app.js
-- styles.css
-- index.html
-server.js
-package.json
-package-lock.json
-README.md
+TBD
 ```
