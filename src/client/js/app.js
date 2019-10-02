@@ -1,7 +1,9 @@
+import { handleSubmit } from "./handleSubmit";
+
 // /* Global Variables */
 const baseURL = "http://api.openweathermap.org/data/2.5/weather?zip=";
 const units = "&units=Imperial";
-const apiKey = "&APPID=7af9e97ca9418cbeed57d0ddfd866f44";
+// const apiKey = "&APPID=7af9e97ca9418cbeed57d0ddfd866f44";
 const form = document.getElementById("location");
 const formErr = document.getElementById("err");
 let feelings, zip;
@@ -12,9 +14,10 @@ let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  zip = document.getElementById("zip").value;
+  const newUrl = handleSubmit();
+  // zip = document.getElementById("zip").value;
   feelings = document.getElementById("feelings").value;
-  const newUrl = baseURL + zip + units + apiKey;
+  // const newUrl = baseURL + zip + units + apiKey;
 
   console.log("form submitted");
   getWeather(newUrl);

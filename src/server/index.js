@@ -1,4 +1,8 @@
 /* Dependencies */
+const dotenv = require("dotenv");
+dotenv.config();
+
+var path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -21,7 +25,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Initializing the main project folder
-app.use(express.static("../dist"));
+app.use(express.static("dist"));
+
+app.get("/", function(req, res) {
+  res.sendFile("dist/index.html");
+});
 
 // Save weather data
 app.post("/", (req, res) => {
