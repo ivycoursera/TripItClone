@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../styles/styles.css" />
     <script src="https://kit.fontawesome.com/89a98874f1.js"></script>
     <title>Document</title>
   </head>
@@ -16,24 +15,26 @@
       <main>
         <form id="location" action="">
           <div class="location-form">
-            <label for="zip">Zipcode: </label>
+            <label for="place-name">My trip to: </label>
             <input
               type="search"
-              id="zip"
-              placeholder="enter zip code here"
+              id="place-name"
+              placeholder="Enter the place to visit here"
               onfocus="this.value=''"
             />
           </div>
           <div class="location-form">
-            <label for="feelings">How are you feeling today?</label>
-            <textarea
-              class="myInput"
-              id="feelings"
-              placeholder="Enter your feelings here"
-            ></textarea>
+            <label for="departing">Departing:</label>
+            <input type="date" name="departing-date" id="departing" />
           </div>
           <div class="submit-button">
-            <button id="generate" type="submit">Submit</button>
+            <button
+              id="show"
+              type="submit"
+              onclick="Client.handleSubmit(event)"
+            >
+              Show Me!
+            </button>
           </div>
           <div class="show-error">
             <h3 id="err"></h3>

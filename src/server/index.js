@@ -11,7 +11,7 @@ const cors = require("cors");
 const app = express();
 
 // setup a port
-const port = 3000;
+const port = process.env.PORT || 8081;
 
 //to hold userdata
 let projectData = [];
