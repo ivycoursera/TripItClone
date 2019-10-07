@@ -7,6 +7,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const geonames = require("./utils/geonames");
+const getWeather = require("./utils/getweather");
+
 // Start up an instance of app
 const app = express();
 
@@ -31,30 +34,19 @@ app.get("/", function(req, res) {
   res.sendFile("dist/index.html");
 });
 
-// Save weather data
-app.post("/", (req, res) => {
-  projectData = [
-    {
-      temperature: req.body.main.temp,
-      date: req.body.dt,
-      userResponse: req.body.name,
-      message: req.body.weather[0].description,
-    },
-  ];
-});
-
-// get weather data
-const weatherKey = process.env.DARK_SKY_SECRET;
-let weatherURL =
-  "https://api.darksky.net/forecast/" + weatherKey + "/37.8267,-122.4233";
-
-app.get("/getWeather", (req, res) => {
-  var url = req.query.text;
-  textapi.summarize({ url: decodeURI(url) }, function(error, response) {
-    if (error === null) {
-      console.log(response);
-      res.send(response);
-    }
+//get location coords
+app.get("/coords", (req, res) => {
+  console.log(req.query.place);
+  if (!req.query) {
+    return res.send({
+      error: "You must specify a location",
+    });
+  }
+  geonames(req.query.place, (error, { latitude, longitude } = {}) => {
+    console.log(latitude, longitude);
+    getWeather(latitude, longitude, (error, weatherData) => {
+      console.log(weatherData);
+    });
   });
 });
 

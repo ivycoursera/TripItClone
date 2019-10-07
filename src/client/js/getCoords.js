@@ -1,10 +1,10 @@
-async function getCoords(url) {
-  const res = await fetch(url);
-  try {
-    const data = await res.json();
-    return data;
-  } catch (e) {
-    console.log("Error: " + e);
+async function getCoords(loc) {
+  if (!loc.length > 0) {
+    document.getElementById("err").innerHTML = "Please enter a location";
+  } else {
+    await fetch(`http://localhost:8081/coords?place=${loc}`).then(response => {
+      console.log(response);
+    });
   }
 }
 
