@@ -43,6 +43,21 @@ app.post("/", (req, res) => {
   ];
 });
 
+// get weather data
+const weatherKey = process.env.DARK_SKY_SECRET;
+let weatherURL =
+  "https://api.darksky.net/forecast/" + weatherKey + "/37.8267,-122.4233";
+
+app.get("/getWeather", (req, res) => {
+  var url = req.query.text;
+  textapi.summarize({ url: decodeURI(url) }, function(error, response) {
+    if (error === null) {
+      console.log(response);
+      res.send(response);
+    }
+  });
+});
+
 app.get("/all", (req, res) => {
   res.send(projectData);
 });
