@@ -12,8 +12,7 @@
     <div class="container">
       <header>
         <h1>
-          <i class="fas fa-suitcase"></i>&nbsp; &nbsp; &nbsp;Travel App&nbsp;
-          &nbsp; &nbsp;
+          <i class="fas fa-suitcase"></i>&nbsp;Travel App&nbsp;
           <i class="fas fa-suitcase"></i>
         </h1>
       </header>
@@ -61,9 +60,15 @@
           </div>
         </form>
         <div id="details" class="details hide">
+          <div class="plan">
+            <button id="plan-trip" onclick="window.location.reload(true)">
+              <i class="fas fa-plus"></i>&nbsp; &nbsp;Plan a new trip
+            </button>
+          </div>
           <img src="" alt="location image" id="loc-image" />
-          <h3 id="place"></h3>
+          <h1 id="place"></h1>
           <h3 id="date"></h3>
+          <h3 id="ret-date"></h3>
           <h4 id="content"></h4>
           <h4>Typical Weather for then is:</h4>
           <h5>
@@ -100,6 +105,11 @@
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
+          caches.keys().then(cacheNames => {
+            cacheNames.forEach(cacheName => {
+              caches.delete(cacheName);
+            });
+          });
           navigator.serviceWorker
             .register("/service-worker.js")
             .then(registration => {

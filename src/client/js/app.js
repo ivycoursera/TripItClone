@@ -1,4 +1,4 @@
-function handleSubmit(loc, trvDate, endDAte, trDate, edDate, getTodayDate) {
+function handleSubmit(loc, trvDate, endDate, trDate, edDate, getTodayDate) {
   let month = getTodayDate.getMonth() + 1;
   const todDate =
     getTodayDate.getFullYear() + "-" + month + "-" + getTodayDate.getDate();
@@ -25,7 +25,7 @@ function handleSubmit(loc, trvDate, endDAte, trDate, edDate, getTodayDate) {
   Client.getImage(loc);
 
   // Update the UI
-  Client.updateUI(loc, trvDate, daysleft, lengthOfTrip);
+  Client.updateUI(loc, trvDate, endDate, daysleft, lengthOfTrip);
 }
 
 export { handleSubmit };

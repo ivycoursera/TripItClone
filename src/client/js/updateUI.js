@@ -1,8 +1,10 @@
-function updateUI(loc, trvDate, days, lengthOfTrip) {
+function updateUI(loc, trvDate, endDate, days, lengthOfTrip) {
   // update destination
   document.getElementById("place").innerHTML = `My Trip to: ${loc}`;
   // update departing date
   document.getElementById("date").innerHTML = `Departing: ${trvDate}`;
+  // update returning date
+  document.getElementById("ret-date").innerHTML = `Returning ${endDate}`;
   // update days to travel
   document.getElementById(
     "content",

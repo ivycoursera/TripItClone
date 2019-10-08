@@ -27,3 +27,5 @@ To run the tests, use `npm run test`
 ## Extended Options/standing out
 
 Added an end date and displayed the length of trip.
+
+TODO: clear cache on reload
