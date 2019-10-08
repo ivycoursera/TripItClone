@@ -1,6 +1,7 @@
 function handleSubmit(event) {
   event.preventDefault();
   console.log("Okay then!");
+
   // get coordinates
   const loc = document.getElementById("place-name").value;
 
@@ -16,29 +17,33 @@ function handleSubmit(event) {
 
   // validate fields
 
-  if (!Client.validateFields(loc, trDate, edDate, getTodayDate)) {
+  if (Client.validateFields(loc, trDate, edDate, getTodayDate) === true) {
     return;
-  }
-
-  //calculate length of trip
-  const lengthOfTrip = Client.calcDays(trDate, edDate);
-
-  // calculate days left
-  const daysleft = Client.calcDays(todDate, trDate);
-
-  // get weather forecast
-  if (daysleft <= 7) {
-    Client.getWeather(loc);
   } else {
-    const unixTime = trDate.getTime() / 1000;
-    Client.getWeather(loc, unixTime);
+    // toggle views
+    document.getElementById("details").classList.toggle("hide");
+    document.getElementById("location").classList.toggle("hide");
+
+    //calculate length of trip
+    const lengthOfTrip = Client.calcDays(trDate, edDate);
+
+    // calculate days left
+    const daysleft = Client.calcDays(todDate, trDate);
+
+    // get weather forecast
+    if (daysleft <= 7) {
+      Client.getWeather(loc);
+    } else {
+      const unixTime = trDate.getTime() / 1000;
+      Client.getWeather(loc, unixTime);
+    }
+
+    // get location image
+    Client.getImage(loc);
+
+    // Update the UI
+    Client.updateUI(loc, trvDate, daysleft, lengthOfTrip);
   }
-
-  // get location image
-  Client.getImage(loc);
-
-  // Update the UI
-  Client.updateUI(loc, trvDate, daysleft, lengthOfTrip);
 }
 
 export { handleSubmit };

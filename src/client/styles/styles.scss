@@ -5,14 +5,16 @@ body {
 }
 .container {
   margin: auto;
-  max-width: 97%;
+  max-width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-areas: "header", "main", "footer";
-  grid-template-rows: 15% 70% 10%;
-  grid-gap: 15px;
+  grid-template-rows: 20% 57% 20%;
+  grid-gap: 1.5%;
   padding-top: 0;
-  background-color: white;
+  background-color: rgb(245, 219, 223);
+}
+.hide {
+  display: none;
 }
 header {
   position: sticky;
@@ -23,8 +25,7 @@ header {
   align-items: center;
   justify-content: space-around;
   text-transform: uppercase;
-  background-color: #272727;
-  color: white;
+  background-color: lightgray;
 }
 header h1 {
   margin: 0;
@@ -33,42 +34,74 @@ header h1 {
   font-size: 5vw;
 }
 main {
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: 30% 65%;
-  padding: 10px;
+  min-width: 96%;
+  padding: 2%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  margin: 0;
+  min-width: 60%;
+  min-height: 94%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2%;
+  border: 2px solid grey;
+  border-radius: 5px;
+  box-shadow: 2px 5px 10px rgb(104, 101, 101);
+}
+.location-form {
+  width: 100%;
+  height: 25%;
+  padding: 2%;
+}
+label {
+  color: darkgreen;
+  font-weight: bold;
+}
+input[type="search"],
+input[type="date"] {
+  width: 100%;
+  font-size: 1.4em;
+  padding: 12px, 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-bottom: 2px solid rgb(49, 47, 47);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: rgb(245, 219, 223);
+}
+button[type="submit"] {
+  width: 80%;
+  font-size: 1.4em;
+  padding: 12px, 20px;
+  margin: 8px 0;
+  display: inline-block;
+  background-color: darkolivegreen;
+  border-radius: 4px;
+  color: white;
+  margin-top: 40px;
 }
 
-form {
-  border-right: 2px solid grey;
-  display: grid;
-  grid-template-columns: 95%;
-  grid-template-rows: 10% 50% 10% 10%;
-  grid-gap: 5px;
-}
-form label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #116466;
-  font-size: 1.1em;
-}
-form input {
-  font-size: 2vw;
-  margin-bottom: 10px;
-}
-form button {
-  margin: 0;
-  height: 50%;
-  width: 80%;
-}
 .show-error {
   color: red;
 }
 
 footer {
-  background-color: #272727;
-  color: white;
+  background-color: lightgray;
   text-align: center;
   padding: 20px 0;
+  a {
+    &:link {
+      text-decoration: none;
+      color: darkslategray;
+      cursor: default;
+    }
+  }
 }

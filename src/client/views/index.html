@@ -14,7 +14,7 @@
         <h1>Travel App</h1>
       </header>
       <main>
-        <form id="location" action="">
+        <form id="location" class="" action="">
           <div class="location-form">
             <label for="place-name">My trip to: </label>
             <input
@@ -24,26 +24,32 @@
               onfocus="this.value=''"
             />
           </div>
-          <div class="location-form">
-            <label for="departing">Departing:</label>
-            <input type="date" name="departing-date" id="departing" />
-            <label for="return-date">Return:</label>
-            <input type="date" name="return-date" id="return-date" />
+          <div class="location-form dates">
+            <div class="travel-dates">
+              <label for="departing-date">Departing:</label>
+              <input type="date" name="departing-date" id="departing" />
+            </div>
+            <div class="travel-dates">
+              <label for="return-date">Return:</label>
+              <input type="date" name="return-date" id="return-date" />
+            </div>
           </div>
-          <div class="submit-button">
-            <button
-              id="show"
-              type="submit"
-              onclick="Client.handleSubmit(event)"
-            >
-              Show Me!
-            </button>
+          <div class="location-form submit-button">
+            <center>
+              <button
+                id="show"
+                type="submit"
+                onclick="Client.handleSubmit(event)"
+              >
+                Plan my trip!
+              </button>
+            </center>
           </div>
-          <div class="show-error">
+          <div class="location-form show-error">
             <h3 id="err"></h3>
           </div>
         </form>
-        <div class="details">
+        <div id="details" class="details hide">
           <img src="" alt="location image" id="loc-image" />
           <h3 id="place"></h3>
           <h3 id="date"></h3>
@@ -55,22 +61,18 @@
         </div>
       </main>
       <footer>
-        <h3>Copyright <i class="far fa-copyright"></i> 2019</h3>
-        <a href="pixabay.com">
+        <h3>Copyright <i class="far fa-copyright"></i> Vi 2019</h3>
+        <a href="#">
           <figure>
             <img src="pixabay-logo-small.png" alt="Pixabay logo" />
-            <figcaption>Images provided by Pixabay</figcaption>
+            <figcaption>Images provided by Pixabay API</figcaption>
           </figure>
         </a>
         <span
           >favicon made by
-          <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"
-            >Good Ware</a
-          >
+          <a href="#" title="Good Ware">Good Ware</a>
           from
-          <a href="https://www.flaticon.com/" title="Flaticon"
-            >www.flaticon.com</a
-          ></span
+          <a href="#" title="Flaticon">www.flaticon.com</a></span
         >
       </footer>
     </div>
