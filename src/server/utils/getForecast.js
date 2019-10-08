@@ -19,13 +19,11 @@ function getWeather(latitude, longitude, time, cb) {
       longitude;
   }
 
-  console.log(url);
-
   request({ url, json: true }, (error, { body }) => {
     if (error) {
-      console.log("Unable to connect to weather service");
+      cb("Unable to connect to weather service");
     } else if (body.error) {
-      console.log(`Unable to get weather data due to ${body.error}`);
+      cb(`Unable to get weather data due to ${body.error}`);
     } else {
       cb(undefined, body);
     }

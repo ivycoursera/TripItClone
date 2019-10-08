@@ -3,7 +3,6 @@ async function getWeather(loc, time) {
     if (data.error) {
       document.getElementById("error-message").textContent = data.error;
     } else {
-      console.log(data);
       let h = document.getElementById("high").innerHTML;
       let l = document.getElementById("low").innerHTML;
       document.getElementById("high").innerHTML = h + data.high;
@@ -14,7 +13,6 @@ async function getWeather(loc, time) {
   if (time) {
     await fetch(`http://localhost:8081/coords?place=${loc}&time=${time}`).then(
       response => {
-        console.log(response);
         response.json().then(data => {
           handleData(data);
         });
@@ -22,7 +20,6 @@ async function getWeather(loc, time) {
     );
   } else {
     await fetch(`http://localhost:8081/coords?place=${loc}`).then(response => {
-      console.log(response);
       response.json().then(data => {
         handleData(data);
       });

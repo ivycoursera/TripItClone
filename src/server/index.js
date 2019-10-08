@@ -39,7 +39,6 @@ app.get("/", function(req, res) {
 app.get("/coords", (req, res) => {
   let time = req.query.time;
   let message;
-  console.log(req.query.place);
   if (!req.query.place) {
     return res.send({
       error: "You must specify a location",
@@ -71,7 +70,6 @@ app.get("/image", (req, res) => {
     if (error) {
       res.send(error);
     }
-    console.log(data.hits[0]);
     res.send({
       alt: data.hits[0].tags,
       src: data.hits[0].webformatURL,

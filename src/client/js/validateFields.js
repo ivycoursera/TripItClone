@@ -1,6 +1,6 @@
 function validateFields(event) {
   event.preventDefault();
-  console.log("Okay then!");
+  console.log("Okay then! Lets Go!!");
 
   // get coordinates
   const loc = document.getElementById("place-name").value;
@@ -12,7 +12,6 @@ function validateFields(event) {
   const trDate = new Date(trvDate);
   const today = new Date();
 
-  console.log(loc, trvDate.length, endDate);
   // Show error if fields are blank
   if (loc === "") {
     document.getElementById("err").innerHTML = "Location cannot be left blank!";
