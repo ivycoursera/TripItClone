@@ -16,7 +16,7 @@ function handleSubmit(event) {
 
   // validate fields
 
-  if (!Client.validateFields(loc, trvDate, getTodayDate)) {
+  if (!Client.validateFields(loc, trDate, edDate, getTodayDate)) {
     return;
   }
 
