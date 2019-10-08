@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const geonames = require("./utils/geonames");
-const getWeather = require("./utils/getweather");
+const getForecast = require("./utils/getForecast");
 
 // Start up an instance of app
 const app = express();
@@ -36,16 +36,30 @@ app.get("/", function(req, res) {
 
 //get location coords
 app.get("/coords", (req, res) => {
+  let time = req.query.time;
+  let message;
   console.log(req.query.place);
-  if (!req.query) {
+  if (!req.query.place) {
     return res.send({
       error: "You must specify a location",
     });
   }
   geonames(req.query.place, (error, { latitude, longitude } = {}) => {
-    console.log(latitude, longitude);
-    getWeather(latitude, longitude, (error, weatherData) => {
-      console.log(weatherData);
+    if (error) {
+      res.send({ error });
+    }
+    getForecast(latitude, longitude, time, (error, weatherData) => {
+      if (error) {
+        res.send({ error });
+      }
+      !weatherData.daily.summary
+        ? (message = weatherData.hourly.summary)
+        : (message = weatherData.daily.summary);
+      res.send({
+        high: weatherData.daily.data[0].temperatureHigh,
+        low: weatherData.daily.data[0].temperatureLow,
+        message,
+      });
     });
   });
 });
