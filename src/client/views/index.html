@@ -11,12 +11,18 @@
   <body>
     <div class="container">
       <header>
-        <h1>Travel App</h1>
+        <h1>
+          <i class="fas fa-suitcase"></i>&nbsp; &nbsp; &nbsp;Travel App&nbsp;
+          &nbsp; &nbsp;
+          <i class="fas fa-suitcase"></i>
+        </h1>
       </header>
       <main>
         <form id="location" class="" action="">
           <div class="location-form">
-            <label for="place-name">My trip to: </label>
+            <label for="place-name"
+              ><i class="fas fa-route"></i>&nbsp;&nbsp;My trip to:
+            </label>
             <input
               type="search"
               id="place-name"
@@ -26,11 +32,16 @@
           </div>
           <div class="location-form dates">
             <div class="travel-dates">
-              <label for="departing-date">Departing:</label>
+              <label for="departing-date"
+                ><i class="fas fa-plane-departure"></i
+                >&nbsp;&nbsp;Departing:</label
+              >
               <input type="date" name="departing-date" id="departing" />
             </div>
             <div class="travel-dates">
-              <label for="return-date">Return:</label>
+              <label for="return-date"
+                ><i class="fas fa-plane-arrival"></i>&nbsp;&nbsp;Return:</label
+              >
               <input type="date" name="return-date" id="return-date" />
             </div>
           </div>
@@ -39,9 +50,9 @@
               <button
                 id="show"
                 type="submit"
-                onclick="Client.handleSubmit(event)"
+                onclick="Client.validateFields(event)"
               >
-                Plan my trip!
+                Plan my trip ! <i class="fas fa-plane"></i>
               </button>
             </center>
           </div>
@@ -55,7 +66,17 @@
           <h3 id="date"></h3>
           <h4 id="content"></h4>
           <h4>Typical Weather for then is:</h4>
-          <h5><span id="high"></span><span id="low"></span></h5>
+          <h5>
+            <span id="high"
+              ><i class="fas fa-temperature-high">&nbsp;</i>HIGH:
+              &nbsp;&nbsp;</span
+            ><span id="low"
+              >&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<i
+                class="fas fa-temperature-low"
+              ></i
+              >&nbsp;LOW:&nbsp;&nbsp;</span
+            >
+          </h5>
           <p id="forecast"></p>
           <p id="error-message"></p>
         </div>

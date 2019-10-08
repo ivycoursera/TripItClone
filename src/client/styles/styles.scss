@@ -8,7 +8,7 @@ body {
   max-width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 20% 57% 20%;
+  grid-template-rows: 15% auto 20%;
   grid-gap: 1.5%;
   padding-top: 0;
   background-color: rgb(245, 219, 223);
@@ -16,6 +16,7 @@ body {
 .hide {
   display: none;
 }
+
 header {
   position: sticky;
   top: 0;

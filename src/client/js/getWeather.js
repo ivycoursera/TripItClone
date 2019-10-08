@@ -4,8 +4,10 @@ async function getWeather(loc, time) {
       document.getElementById("error-message").textContent = data.error;
     } else {
       console.log(data);
-      document.getElementById("high").textContent = "HIGH: " + data.high;
-      document.getElementById("low").textContent = "LOW: " + data.low;
+      let h = document.getElementById("high").innerHTML;
+      let l = document.getElementById("low").innerHTML;
+      document.getElementById("high").innerHTML = h + data.high;
+      document.getElementById("low").innerHTML = l + data.low;
       document.getElementById("forecast").textContent = data.message;
     }
   };
