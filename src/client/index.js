@@ -7,6 +7,9 @@ import { validateFields } from "./js/validateFields";
 
 import "./styles/styles.scss";
 
+import "./media/world.png";
+import "./media/pixabay-logo-small.png";
+
 export {
   handleSubmit,
   calcDays,
