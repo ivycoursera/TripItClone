@@ -9,6 +9,7 @@ const cors = require("cors");
 
 const geonames = require("./utils/geonames");
 const getForecast = require("./utils/getForecast");
+const pixabay = require("./utils/pixabay");
 
 // Start up an instance of app
 const app = express();
@@ -60,6 +61,20 @@ app.get("/coords", (req, res) => {
         low: weatherData.daily.data[0].temperatureLow,
         message,
       });
+    });
+  });
+});
+
+app.get("/image", (req, res) => {
+  let place = req.query.place;
+  pixabay(place, (error, data) => {
+    if (error) {
+      res.send(error);
+    }
+    console.log(data.hits[0]);
+    res.send({
+      alt: data.hits[0].tags,
+      src: data.hits[0].webformatURL,
     });
   });
 });

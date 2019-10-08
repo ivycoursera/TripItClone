@@ -33,6 +33,9 @@ function handleSubmit(event) {
     Client.getWeather(loc, unixTime);
   }
 
+  // get location image
+  Client.getImage(loc);
+
   // Update the UI
   Client.updateUI(loc, trvDate, daysleft);
 }
