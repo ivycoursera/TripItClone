@@ -87,3 +87,6 @@ const server = app.listen(port, () => {
   console.log("Server running");
   console.log(`Server is running on localhost:${port}`);
 });
+
+// for testing
+module.exports = server;
