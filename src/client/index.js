@@ -1,4 +1,4 @@
-import { handleSubmit } from "./js/handleSubmit";
+import { handleSubmit } from "./js/app";
 import { calcDays } from "./js/daysLeft";
 import { updateUI } from "./js/updateUI";
 import { getWeather } from "./js/getWeather";
