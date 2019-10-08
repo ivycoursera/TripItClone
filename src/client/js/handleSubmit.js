@@ -7,18 +7,15 @@ function handleSubmit(event) {
   // Calculate days to travel
   const trvDate = document.getElementById("departing").value;
 
-  // Show error if fields are blank
-  if (loc === "" || trvDate === "") {
-    document.getElementById("err").innerHTML = "Fields cannot be left blank!";
+  // validate fields
+  const getTodayDate = new Date();
+  if (!Client.validateFields(loc, trvDate, getTodayDate)) {
     return;
-  } else {
-    document.getElementById("err").innerHTML = "";
   }
 
   // calculate days left
   const trDate = new Date(trvDate);
 
-  const getTodayDate = new Date();
   let month = getTodayDate.getMonth() + 1;
   const todDate =
     getTodayDate.getFullYear() + "-" + month + "-" + getTodayDate.getDate();
